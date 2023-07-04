@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { decrementAction, incrementAction, incrementByValueAction } from '../redux/actions/CounterActions';
+import { decrement, increment, incrementByValue } from '../redux/counterSlicer';
+// import { decrementAction, incrementAction, incrementByValueAction } from '../redux/actions/CounterActions';
 
 const Counter = () => {
 
@@ -8,15 +9,18 @@ const Counter = () => {
     const dispatch = useDispatch();
 
     const handleIncrement = () => {
-        incrementAction(dispatch)
+        dispatch(increment())
+        // incrementAction(dispatch)
     }
-
+    
     const handleDecrement = () => {
-        decrementAction(dispatch)
+        dispatch(decrement())
+        // decrementAction(dispatch)
     }
-
+    
     const handleIncrementByValue = (value) => {
-        incrementByValueAction(value, dispatch)
+        dispatch(incrementByValue(value))
+        // incrementByValueAction(value, dispatch)
     }
 
     return (
